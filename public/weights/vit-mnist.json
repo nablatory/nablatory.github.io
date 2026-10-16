@@ -1,0 +1,455 @@
+{
+ "format": "nablatory-checkpoint",
+ "version": 1,
+ "model": "vit",
+ "config": {
+  "patch": "7",
+  "layers": 3,
+  "dModel": 32,
+  "heads": 4,
+  "dropout": 0
+ },
+ "params": [
+  {
+   "name": "embed.patch.weight",
+   "shape": [
+    32,
+    49
+   ],
+   "offset": 0
+  },
+  {
+   "name": "embed.patch.bias",
+   "shape": [
+    32
+   ],
+   "offset": 1568
+  },
+  {
+   "name": "embed.cls",
+   "shape": [
+    1,
+    32
+   ],
+   "offset": 1600
+  },
+  {
+   "name": "embed.pos",
+   "shape": [
+    17,
+    32
+   ],
+   "offset": 1632
+  },
+  {
+   "name": "block1.ln1.weight",
+   "shape": [
+    32
+   ],
+   "offset": 2176
+  },
+  {
+   "name": "block1.ln1.bias",
+   "shape": [
+    32
+   ],
+   "offset": 2208
+  },
+  {
+   "name": "block1.attn.q.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 2240
+  },
+  {
+   "name": "block1.attn.q.bias",
+   "shape": [
+    32
+   ],
+   "offset": 3264
+  },
+  {
+   "name": "block1.attn.k.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 3296
+  },
+  {
+   "name": "block1.attn.k.bias",
+   "shape": [
+    32
+   ],
+   "offset": 4320
+  },
+  {
+   "name": "block1.attn.v.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 4352
+  },
+  {
+   "name": "block1.attn.v.bias",
+   "shape": [
+    32
+   ],
+   "offset": 5376
+  },
+  {
+   "name": "block1.attn.o.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 5408
+  },
+  {
+   "name": "block1.attn.o.bias",
+   "shape": [
+    32
+   ],
+   "offset": 6432
+  },
+  {
+   "name": "block1.ln2.weight",
+   "shape": [
+    32
+   ],
+   "offset": 6464
+  },
+  {
+   "name": "block1.ln2.bias",
+   "shape": [
+    32
+   ],
+   "offset": 6496
+  },
+  {
+   "name": "block1.ffn.fc1.weight",
+   "shape": [
+    128,
+    32
+   ],
+   "offset": 6528
+  },
+  {
+   "name": "block1.ffn.fc1.bias",
+   "shape": [
+    128
+   ],
+   "offset": 10624
+  },
+  {
+   "name": "block1.ffn.fc2.weight",
+   "shape": [
+    32,
+    128
+   ],
+   "offset": 10752
+  },
+  {
+   "name": "block1.ffn.fc2.bias",
+   "shape": [
+    32
+   ],
+   "offset": 14848
+  },
+  {
+   "name": "block2.ln1.weight",
+   "shape": [
+    32
+   ],
+   "offset": 14880
+  },
+  {
+   "name": "block2.ln1.bias",
+   "shape": [
+    32
+   ],
+   "offset": 14912
+  },
+  {
+   "name": "block2.attn.q.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 14944
+  },
+  {
+   "name": "block2.attn.q.bias",
+   "shape": [
+    32
+   ],
+   "offset": 15968
+  },
+  {
+   "name": "block2.attn.k.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 16000
+  },
+  {
+   "name": "block2.attn.k.bias",
+   "shape": [
+    32
+   ],
+   "offset": 17024
+  },
+  {
+   "name": "block2.attn.v.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 17056
+  },
+  {
+   "name": "block2.attn.v.bias",
+   "shape": [
+    32
+   ],
+   "offset": 18080
+  },
+  {
+   "name": "block2.attn.o.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 18112
+  },
+  {
+   "name": "block2.attn.o.bias",
+   "shape": [
+    32
+   ],
+   "offset": 19136
+  },
+  {
+   "name": "block2.ln2.weight",
+   "shape": [
+    32
+   ],
+   "offset": 19168
+  },
+  {
+   "name": "block2.ln2.bias",
+   "shape": [
+    32
+   ],
+   "offset": 19200
+  },
+  {
+   "name": "block2.ffn.fc1.weight",
+   "shape": [
+    128,
+    32
+   ],
+   "offset": 19232
+  },
+  {
+   "name": "block2.ffn.fc1.bias",
+   "shape": [
+    128
+   ],
+   "offset": 23328
+  },
+  {
+   "name": "block2.ffn.fc2.weight",
+   "shape": [
+    32,
+    128
+   ],
+   "offset": 23456
+  },
+  {
+   "name": "block2.ffn.fc2.bias",
+   "shape": [
+    32
+   ],
+   "offset": 27552
+  },
+  {
+   "name": "block3.ln1.weight",
+   "shape": [
+    32
+   ],
+   "offset": 27584
+  },
+  {
+   "name": "block3.ln1.bias",
+   "shape": [
+    32
+   ],
+   "offset": 27616
+  },
+  {
+   "name": "block3.attn.q.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 27648
+  },
+  {
+   "name": "block3.attn.q.bias",
+   "shape": [
+    32
+   ],
+   "offset": 28672
+  },
+  {
+   "name": "block3.attn.k.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 28704
+  },
+  {
+   "name": "block3.attn.k.bias",
+   "shape": [
+    32
+   ],
+   "offset": 29728
+  },
+  {
+   "name": "block3.attn.v.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 29760
+  },
+  {
+   "name": "block3.attn.v.bias",
+   "shape": [
+    32
+   ],
+   "offset": 30784
+  },
+  {
+   "name": "block3.attn.o.weight",
+   "shape": [
+    32,
+    32
+   ],
+   "offset": 30816
+  },
+  {
+   "name": "block3.attn.o.bias",
+   "shape": [
+    32
+   ],
+   "offset": 31840
+  },
+  {
+   "name": "block3.ln2.weight",
+   "shape": [
+    32
+   ],
+   "offset": 31872
+  },
+  {
+   "name": "block3.ln2.bias",
+   "shape": [
+    32
+   ],
+   "offset": 31904
+  },
+  {
+   "name": "block3.ffn.fc1.weight",
+   "shape": [
+    128,
+    32
+   ],
+   "offset": 31936
+  },
+  {
+   "name": "block3.ffn.fc1.bias",
+   "shape": [
+    128
+   ],
+   "offset": 36032
+  },
+  {
+   "name": "block3.ffn.fc2.weight",
+   "shape": [
+    32,
+    128
+   ],
+   "offset": 36160
+  },
+  {
+   "name": "block3.ffn.fc2.bias",
+   "shape": [
+    32
+   ],
+   "offset": 40256
+  },
+  {
+   "name": "head.ln.weight",
+   "shape": [
+    32
+   ],
+   "offset": 40288
+  },
+  {
+   "name": "head.ln.bias",
+   "shape": [
+    32
+   ],
+   "offset": 40320
+  },
+  {
+   "name": "head.weight",
+   "shape": [
+    10,
+    32
+   ],
+   "offset": 40352
+  },
+  {
+   "name": "head.bias",
+   "shape": [
+    10
+   ],
+   "offset": 40672
+  }
+ ],
+ "provenance": {
+  "dataset": "MNIST training set (60,000 images), intensities / 255",
+  "script": "scripts/train/vit-mnist.ts",
+  "metrics": {
+   "validationLoss": 0.13951444625854492,
+   "validationAccuracy": 0.954,
+   "testAccuracy": 0.9596,
+   "testLoss": 0.1442156570032239,
+   "trainSeconds": 558
+  },
+  "notes": "Adam, batch 32, 2500 steps (1.33 epochs); learning rate warmed up linearly to 0.003 over 100 steps, then cosine-decayed to 0.0001; gradient norm clipped at 1. validationLoss/validationAccuracy: Session.evaluate() on the first 500 test images; testLoss/testAccuracy: all 10,000 test images.",
+  "seed": 1,
+  "steps": 2500,
+  "optimizer": {
+   "kind": "adam",
+   "lr": 0.0001,
+   "momentum": 0.9,
+   "beta1": 0.9,
+   "beta2": 0.999,
+   "eps": 1e-8,
+   "weightDecay": 0,
+   "clip": "norm",
+   "clipValue": 1
+  },
+  "engineRevision": "183b03c",
+  "date": "2026-10-15"
+ }
+}

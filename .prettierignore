@@ -1,0 +1,6 @@
+dist
+node_modules
+public/weights
+public/data
+tests/fixtures
+*.md

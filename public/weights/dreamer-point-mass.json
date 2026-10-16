@@ -1,0 +1,306 @@
+{
+ "format": "nablatory-checkpoint",
+ "version": 1,
+ "model": "dreamer",
+ "config": {
+  "deter": 32,
+  "stoch": 6,
+  "hidden": 64,
+  "embed": 32,
+  "freeNats": 1,
+  "klScale": 1,
+  "seqLen": 12,
+  "vision": "mlp",
+  "channels": 8,
+  "starts": 32,
+  "horizon": 10,
+  "discount": 0.95,
+  "lambda": 0.95
+ },
+ "params": [
+  {
+   "name": "encoder.fc1.weight",
+   "shape": [
+    64,
+    256
+   ],
+   "offset": 0
+  },
+  {
+   "name": "encoder.fc1.bias",
+   "shape": [
+    64
+   ],
+   "offset": 16384
+  },
+  {
+   "name": "encoder.fc2.weight",
+   "shape": [
+    32,
+    64
+   ],
+   "offset": 16448
+  },
+  {
+   "name": "encoder.fc2.bias",
+   "shape": [
+    32
+   ],
+   "offset": 18496
+  },
+  {
+   "name": "transition.input.weight",
+   "shape": [
+    32,
+    8
+   ],
+   "offset": 18528
+  },
+  {
+   "name": "transition.input.bias",
+   "shape": [
+    32
+   ],
+   "offset": 18784
+  },
+  {
+   "name": "transition.gru.ih.weight",
+   "shape": [
+    96,
+    32
+   ],
+   "offset": 18816
+  },
+  {
+   "name": "transition.gru.ih.bias",
+   "shape": [
+    96
+   ],
+   "offset": 21888
+  },
+  {
+   "name": "transition.gru.hh.weight",
+   "shape": [
+    96,
+    32
+   ],
+   "offset": 21984
+  },
+  {
+   "name": "transition.gru.hh.bias",
+   "shape": [
+    96
+   ],
+   "offset": 25056
+  },
+  {
+   "name": "prior.fc1.weight",
+   "shape": [
+    64,
+    32
+   ],
+   "offset": 25152
+  },
+  {
+   "name": "prior.fc1.bias",
+   "shape": [
+    64
+   ],
+   "offset": 27200
+  },
+  {
+   "name": "prior.fc2.weight",
+   "shape": [
+    12,
+    64
+   ],
+   "offset": 27264
+  },
+  {
+   "name": "prior.fc2.bias",
+   "shape": [
+    12
+   ],
+   "offset": 28032
+  },
+  {
+   "name": "posterior.fc1.weight",
+   "shape": [
+    64,
+    64
+   ],
+   "offset": 28044
+  },
+  {
+   "name": "posterior.fc1.bias",
+   "shape": [
+    64
+   ],
+   "offset": 32140
+  },
+  {
+   "name": "posterior.fc2.weight",
+   "shape": [
+    12,
+    64
+   ],
+   "offset": 32204
+  },
+  {
+   "name": "posterior.fc2.bias",
+   "shape": [
+    12
+   ],
+   "offset": 32972
+  },
+  {
+   "name": "decoder.fc1.weight",
+   "shape": [
+    64,
+    38
+   ],
+   "offset": 32984
+  },
+  {
+   "name": "decoder.fc1.bias",
+   "shape": [
+    64
+   ],
+   "offset": 35416
+  },
+  {
+   "name": "decoder.fc2.weight",
+   "shape": [
+    256,
+    64
+   ],
+   "offset": 35480
+  },
+  {
+   "name": "decoder.fc2.bias",
+   "shape": [
+    256
+   ],
+   "offset": 51864
+  },
+  {
+   "name": "reward.fc1.weight",
+   "shape": [
+    64,
+    38
+   ],
+   "offset": 52120
+  },
+  {
+   "name": "reward.fc1.bias",
+   "shape": [
+    64
+   ],
+   "offset": 54552
+  },
+  {
+   "name": "reward.fc2.weight",
+   "shape": [
+    1,
+    64
+   ],
+   "offset": 54616
+  },
+  {
+   "name": "reward.fc2.bias",
+   "shape": [
+    1
+   ],
+   "offset": 54680
+  },
+  {
+   "name": "actor.fc1.weight",
+   "shape": [
+    64,
+    38
+   ],
+   "offset": 54681
+  },
+  {
+   "name": "actor.fc1.bias",
+   "shape": [
+    64
+   ],
+   "offset": 57113
+  },
+  {
+   "name": "actor.fc2.weight",
+   "shape": [
+    4,
+    64
+   ],
+   "offset": 57177
+  },
+  {
+   "name": "actor.fc2.bias",
+   "shape": [
+    4
+   ],
+   "offset": 57433
+  },
+  {
+   "name": "value.fc1.weight",
+   "shape": [
+    64,
+    38
+   ],
+   "offset": 57437
+  },
+  {
+   "name": "value.fc1.bias",
+   "shape": [
+    64
+   ],
+   "offset": 59869
+  },
+  {
+   "name": "value.fc2.weight",
+   "shape": [
+    1,
+    64
+   ],
+   "offset": 59933
+  },
+  {
+   "name": "value.fc2.bias",
+   "shape": [
+    1
+   ],
+   "offset": 59997
+  }
+ ],
+ "provenance": {
+  "dataset": "Point-mass reaching: 96 episodes × 40 steps from the scripted policy (src/models/world-model/env.ts), 12-step subsequences",
+  "script": "scripts/train/dreamer.ts",
+  "metrics": {
+   "validationLoss": 1.690711498260498,
+   "reconstruction": 0.36098408699035645,
+   "reward": 0.002832604805007577,
+   "kl": 1.1463361978530884,
+   "imaginedReturn": 14.646867752075195,
+   "actorReturn": 35.457995690230746,
+   "scriptedPolicyReturn": 14.818762181402349
+  },
+  "notes": "Adam (one per phase), batch 16, 5000 steps of world model, actor and critic; lr 3e-3, then 1e-3 from 60 % and 3e-4 from 85 %; gradient-norm clip 100. Returns are Σ_{t=1..40} r_t in the simulator from the start states of the 8 held-out episodes (actor: mode actions, closed loop).",
+  "seed": 1,
+  "steps": 5000,
+  "optimizer": {
+   "kind": "adam",
+   "lr": 0.0003,
+   "momentum": 0.9,
+   "beta1": 0.9,
+   "beta2": 0.999,
+   "eps": 1e-8,
+   "weightDecay": 0,
+   "clip": "norm",
+   "clipValue": 100
+  },
+  "engineRevision": "54b3071",
+  "date": "2026-10-15"
+ }
+}

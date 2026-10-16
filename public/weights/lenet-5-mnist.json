@@ -1,0 +1,158 @@
+{
+ "format": "nablatory-checkpoint",
+ "version": 1,
+ "model": "lenet-5",
+ "config": {
+  "activation": "scaledTanh",
+  "pooling": "trainable",
+  "c3": "table",
+  "output": "linear",
+  "c1Padding": 0,
+  "c1Stride": 1
+ },
+ "params": [
+  {
+   "name": "c1.weight",
+   "shape": [
+    6,
+    1,
+    5,
+    5
+   ],
+   "offset": 0
+  },
+  {
+   "name": "c1.bias",
+   "shape": [
+    6
+   ],
+   "offset": 150
+  },
+  {
+   "name": "s2.coef",
+   "shape": [
+    6
+   ],
+   "offset": 156
+  },
+  {
+   "name": "s2.bias",
+   "shape": [
+    6
+   ],
+   "offset": 162
+  },
+  {
+   "name": "c3.weight",
+   "shape": [
+    16,
+    6,
+    5,
+    5
+   ],
+   "offset": 168
+  },
+  {
+   "name": "c3.bias",
+   "shape": [
+    16
+   ],
+   "offset": 2568
+  },
+  {
+   "name": "c3.mask",
+   "shape": [
+    16,
+    6,
+    1,
+    1
+   ],
+   "offset": 2584
+  },
+  {
+   "name": "s4.coef",
+   "shape": [
+    16
+   ],
+   "offset": 2680
+  },
+  {
+   "name": "s4.bias",
+   "shape": [
+    16
+   ],
+   "offset": 2696
+  },
+  {
+   "name": "c5.weight",
+   "shape": [
+    120,
+    16,
+    5,
+    5
+   ],
+   "offset": 2712
+  },
+  {
+   "name": "c5.bias",
+   "shape": [
+    120
+   ],
+   "offset": 50712
+  },
+  {
+   "name": "f6.weight",
+   "shape": [
+    84,
+    120
+   ],
+   "offset": 50832
+  },
+  {
+   "name": "f6.bias",
+   "shape": [
+    84
+   ],
+   "offset": 60912
+  },
+  {
+   "name": "output.weight",
+   "shape": [
+    10,
+    84
+   ],
+   "offset": 60996
+  },
+  {
+   "name": "output.bias",
+   "shape": [
+    10
+   ],
+   "offset": 61836
+  }
+ ],
+ "provenance": {
+  "dataset": "MNIST training set (60,000 images), LeCun encoding",
+  "script": "scripts/train/lenet5.ts",
+  "metrics": {
+   "testAccuracy": 0.9829,
+   "testLoss": 0.050574820931069554
+  },
+  "notes": "Adam, batch 64, 3 epochs; lr 1e-3 then 3e-4 for the final epoch(s).",
+  "seed": 1,
+  "steps": 2811,
+  "optimizer": {
+   "kind": "adam",
+   "lr": 0.0003,
+   "momentum": 0.9,
+   "beta1": 0.9,
+   "beta2": 0.999,
+   "eps": 1e-8,
+   "weightDecay": 0,
+   "clip": "none",
+   "clipValue": 1
+  },
+  "engineRevision": "f75d490",
+  "date": "2026-10-15"
+ }
+}

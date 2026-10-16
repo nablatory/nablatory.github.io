@@ -1,0 +1,225 @@
+{
+ "format": "nablatory-checkpoint",
+ "version": 1,
+ "model": "td-mpc",
+ "config": {
+  "latent": 16,
+  "hidden": 32,
+  "horizon": 5,
+  "discount": 0.9,
+  "rho": 0.5,
+  "consistencyCoef": 2,
+  "rewardCoef": 0.5,
+  "valueCoef": 0.1
+ },
+ "params": [
+  {
+   "name": "encoder.fc1.weight",
+   "shape": [
+    32,
+    4
+   ],
+   "offset": 0
+  },
+  {
+   "name": "encoder.fc1.bias",
+   "shape": [
+    32
+   ],
+   "offset": 128
+  },
+  {
+   "name": "encoder.fc2.weight",
+   "shape": [
+    16,
+    32
+   ],
+   "offset": 160
+  },
+  {
+   "name": "encoder.fc2.bias",
+   "shape": [
+    16
+   ],
+   "offset": 672
+  },
+  {
+   "name": "dynamics.fc1.weight",
+   "shape": [
+    32,
+    18
+   ],
+   "offset": 688
+  },
+  {
+   "name": "dynamics.fc1.bias",
+   "shape": [
+    32
+   ],
+   "offset": 1264
+  },
+  {
+   "name": "dynamics.fc2.weight",
+   "shape": [
+    16,
+    32
+   ],
+   "offset": 1296
+  },
+  {
+   "name": "dynamics.fc2.bias",
+   "shape": [
+    16
+   ],
+   "offset": 1808
+  },
+  {
+   "name": "reward.fc1.weight",
+   "shape": [
+    32,
+    18
+   ],
+   "offset": 1824
+  },
+  {
+   "name": "reward.fc1.bias",
+   "shape": [
+    32
+   ],
+   "offset": 2400
+  },
+  {
+   "name": "reward.fc2.weight",
+   "shape": [
+    1,
+    32
+   ],
+   "offset": 2432
+  },
+  {
+   "name": "reward.fc2.bias",
+   "shape": [
+    1
+   ],
+   "offset": 2464
+  },
+  {
+   "name": "q1.fc1.weight",
+   "shape": [
+    32,
+    18
+   ],
+   "offset": 2465
+  },
+  {
+   "name": "q1.fc1.bias",
+   "shape": [
+    32
+   ],
+   "offset": 3041
+  },
+  {
+   "name": "q1.fc2.weight",
+   "shape": [
+    1,
+    32
+   ],
+   "offset": 3073
+  },
+  {
+   "name": "q1.fc2.bias",
+   "shape": [
+    1
+   ],
+   "offset": 3105
+  },
+  {
+   "name": "q2.fc1.weight",
+   "shape": [
+    32,
+    18
+   ],
+   "offset": 3106
+  },
+  {
+   "name": "q2.fc1.bias",
+   "shape": [
+    32
+   ],
+   "offset": 3682
+  },
+  {
+   "name": "q2.fc2.weight",
+   "shape": [
+    1,
+    32
+   ],
+   "offset": 3714
+  },
+  {
+   "name": "q2.fc2.bias",
+   "shape": [
+    1
+   ],
+   "offset": 3746
+  },
+  {
+   "name": "pi.fc1.weight",
+   "shape": [
+    32,
+    16
+   ],
+   "offset": 3747
+  },
+  {
+   "name": "pi.fc1.bias",
+   "shape": [
+    32
+   ],
+   "offset": 4259
+  },
+  {
+   "name": "pi.fc2.weight",
+   "shape": [
+    2,
+    32
+   ],
+   "offset": 4291
+  },
+  {
+   "name": "pi.fc2.bias",
+   "shape": [
+    2
+   ],
+   "offset": 4355
+  }
+ ],
+ "provenance": {
+  "dataset": "Point-mass reaching: 96 episodes × 40 steps from the scripted policy (src/models/world-model/env.ts), 6-step windows",
+  "script": "scripts/train/td-mpc.ts",
+  "metrics": {
+   "validationLoss": 0.0013293127994984388,
+   "consistency": 0.0009275564225390553,
+   "reward": 0.0008155286777764559,
+   "value": 0.043836865574121475,
+   "mpcReturn": 37.382844592793845,
+   "scriptedPolicyReturn": 14.818762181402349
+  },
+  "notes": "Adam (one per phase), batch 64, 4000 steps; lr 3e-3, then 1e-3 from 60 % and 3e-4 from 85 %; gradient-norm clip 10. Returns are Σ_{t=1..40} r_t of closed-loop MPPI (64 + 4 candidates, 8 elites, 6 iterations) from the start states of the 8 held-out episodes.",
+  "seed": 1,
+  "steps": 4000,
+  "optimizer": {
+   "kind": "adam",
+   "lr": 0.0003,
+   "momentum": 0.9,
+   "beta1": 0.9,
+   "beta2": 0.999,
+   "eps": 1e-8,
+   "weightDecay": 0,
+   "clip": "norm",
+   "clipValue": 10
+  },
+  "engineRevision": "dec28ff",
+  "date": "2026-10-15"
+ }
+}

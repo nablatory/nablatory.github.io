@@ -1,0 +1,265 @@
+{
+ "format": "nablatory-checkpoint",
+ "version": 1,
+ "model": "unet",
+ "config": {
+  "depth": 2,
+  "baseChannels": 8,
+  "classes": "2",
+  "padding": "same",
+  "tile": 32,
+  "noise": 0.1,
+  "diceWeight": 0
+ },
+ "params": [
+  {
+   "name": "down1.conv1.weight",
+   "shape": [
+    8,
+    1,
+    3,
+    3
+   ],
+   "offset": 0
+  },
+  {
+   "name": "down1.conv1.bias",
+   "shape": [
+    8
+   ],
+   "offset": 72
+  },
+  {
+   "name": "down1.conv2.weight",
+   "shape": [
+    8,
+    8,
+    3,
+    3
+   ],
+   "offset": 80
+  },
+  {
+   "name": "down1.conv2.bias",
+   "shape": [
+    8
+   ],
+   "offset": 656
+  },
+  {
+   "name": "down2.conv1.weight",
+   "shape": [
+    16,
+    8,
+    3,
+    3
+   ],
+   "offset": 664
+  },
+  {
+   "name": "down2.conv1.bias",
+   "shape": [
+    16
+   ],
+   "offset": 1816
+  },
+  {
+   "name": "down2.conv2.weight",
+   "shape": [
+    16,
+    16,
+    3,
+    3
+   ],
+   "offset": 1832
+  },
+  {
+   "name": "down2.conv2.bias",
+   "shape": [
+    16
+   ],
+   "offset": 4136
+  },
+  {
+   "name": "bottleneck.conv1.weight",
+   "shape": [
+    32,
+    16,
+    3,
+    3
+   ],
+   "offset": 4152
+  },
+  {
+   "name": "bottleneck.conv1.bias",
+   "shape": [
+    32
+   ],
+   "offset": 8760
+  },
+  {
+   "name": "bottleneck.conv2.weight",
+   "shape": [
+    32,
+    32,
+    3,
+    3
+   ],
+   "offset": 8792
+  },
+  {
+   "name": "bottleneck.conv2.bias",
+   "shape": [
+    32
+   ],
+   "offset": 18008
+  },
+  {
+   "name": "upconv2.weight",
+   "shape": [
+    32,
+    16,
+    2,
+    2
+   ],
+   "offset": 18040
+  },
+  {
+   "name": "upconv2.bias",
+   "shape": [
+    16
+   ],
+   "offset": 20088
+  },
+  {
+   "name": "up2.conv1.weight",
+   "shape": [
+    16,
+    32,
+    3,
+    3
+   ],
+   "offset": 20104
+  },
+  {
+   "name": "up2.conv1.bias",
+   "shape": [
+    16
+   ],
+   "offset": 24712
+  },
+  {
+   "name": "up2.conv2.weight",
+   "shape": [
+    16,
+    16,
+    3,
+    3
+   ],
+   "offset": 24728
+  },
+  {
+   "name": "up2.conv2.bias",
+   "shape": [
+    16
+   ],
+   "offset": 27032
+  },
+  {
+   "name": "upconv1.weight",
+   "shape": [
+    16,
+    8,
+    2,
+    2
+   ],
+   "offset": 27048
+  },
+  {
+   "name": "upconv1.bias",
+   "shape": [
+    8
+   ],
+   "offset": 27560
+  },
+  {
+   "name": "up1.conv1.weight",
+   "shape": [
+    8,
+    16,
+    3,
+    3
+   ],
+   "offset": 27568
+  },
+  {
+   "name": "up1.conv1.bias",
+   "shape": [
+    8
+   ],
+   "offset": 28720
+  },
+  {
+   "name": "up1.conv2.weight",
+   "shape": [
+    8,
+    8,
+    3,
+    3
+   ],
+   "offset": 28728
+  },
+  {
+   "name": "up1.conv2.bias",
+   "shape": [
+    8
+   ],
+   "offset": 29304
+  },
+  {
+   "name": "output.weight",
+   "shape": [
+    2,
+    8,
+    1,
+    1
+   ],
+   "offset": 29312
+  },
+  {
+   "name": "output.bias",
+   "shape": [
+    2
+   ],
+   "offset": 29328
+  }
+ ],
+ "provenance": {
+  "dataset": "Synthetic shapes (src/models/data/shapes.ts), 32×32, 2 classes, noise σ = 0.1",
+  "script": "scripts/train/unet.ts",
+  "metrics": {
+   "testLoss": 0.015523569367360324,
+   "testIou": 0.9581216922738366,
+   "testPixelAccuracy": 0.9942054748535156,
+   "validationLoss": 0.013389615342020988,
+   "validationIou": 0.9680337756332931,
+   "validationPixelAccuracy": 0.995147705078125
+  },
+  "notes": "Adam, batch 8, 1800 steps; lr 0.003 then 0.0009 for the final third. Test metrics: mean over 16 batches of 32 scenes from a separate seed (IoU is computed per batch over the shape classes, then averaged); validation metrics on the browser’s fixed 32-scene validation batch.",
+  "seed": 1,
+  "steps": 1800,
+  "optimizer": {
+   "kind": "adam",
+   "lr": 0.0009,
+   "momentum": 0.9,
+   "beta1": 0.9,
+   "beta2": 0.999,
+   "eps": 1e-8,
+   "weightDecay": 0,
+   "clip": "none",
+   "clipValue": 1
+  },
+  "engineRevision": "dec28ff",
+  "date": "2026-10-15"
+ }
+}

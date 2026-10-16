@@ -1,0 +1,217 @@
+{
+ "format": "nablatory-checkpoint",
+ "version": 1,
+ "model": "dcgan",
+ "config": {
+  "zDim": 32,
+  "gf": 16,
+  "df": 16,
+  "gLoss": "nonsaturating"
+ },
+ "params": [
+  {
+   "name": "G.project.weight",
+   "shape": [
+    1568,
+    32
+   ],
+   "offset": 0
+  },
+  {
+   "name": "G.project.bn.weight",
+   "shape": [
+    32
+   ],
+   "offset": 50176
+  },
+  {
+   "name": "G.project.bn.bias",
+   "shape": [
+    32
+   ],
+   "offset": 50208
+  },
+  {
+   "name": "G.project.bn.runningMean",
+   "shape": [
+    32
+   ],
+   "offset": 50240
+  },
+  {
+   "name": "G.project.bn.runningVar",
+   "shape": [
+    32
+   ],
+   "offset": 50272
+  },
+  {
+   "name": "G.deconv1.weight",
+   "shape": [
+    32,
+    16,
+    4,
+    4
+   ],
+   "offset": 50304
+  },
+  {
+   "name": "G.deconv1.bn.weight",
+   "shape": [
+    16
+   ],
+   "offset": 58496
+  },
+  {
+   "name": "G.deconv1.bn.bias",
+   "shape": [
+    16
+   ],
+   "offset": 58512
+  },
+  {
+   "name": "G.deconv1.bn.runningMean",
+   "shape": [
+    16
+   ],
+   "offset": 58528
+  },
+  {
+   "name": "G.deconv1.bn.runningVar",
+   "shape": [
+    16
+   ],
+   "offset": 58544
+  },
+  {
+   "name": "G.deconv2.weight",
+   "shape": [
+    16,
+    1,
+    4,
+    4
+   ],
+   "offset": 58560
+  },
+  {
+   "name": "G.deconv2.bias",
+   "shape": [
+    1
+   ],
+   "offset": 58816
+  },
+  {
+   "name": "D.conv1.weight",
+   "shape": [
+    16,
+    1,
+    4,
+    4
+   ],
+   "offset": 58817
+  },
+  {
+   "name": "D.conv1.bias",
+   "shape": [
+    16
+   ],
+   "offset": 59073
+  },
+  {
+   "name": "D.conv2.weight",
+   "shape": [
+    32,
+    16,
+    4,
+    4
+   ],
+   "offset": 59089
+  },
+  {
+   "name": "D.conv2.bn.weight",
+   "shape": [
+    32
+   ],
+   "offset": 67281
+  },
+  {
+   "name": "D.conv2.bn.bias",
+   "shape": [
+    32
+   ],
+   "offset": 67313
+  },
+  {
+   "name": "D.conv2.bn.runningMean",
+   "shape": [
+    32
+   ],
+   "offset": 67345
+  },
+  {
+   "name": "D.conv2.bn.runningVar",
+   "shape": [
+    32
+   ],
+   "offset": 67377
+  },
+  {
+   "name": "D.out.weight",
+   "shape": [
+    1,
+    1568
+   ],
+   "offset": 67409
+  },
+  {
+   "name": "D.out.bias",
+   "shape": [
+    1
+   ],
+   "offset": 68977
+  }
+ ],
+ "provenance": {
+  "dataset": "MNIST training set (60,000 images), pixels mapped to [−1, 1]",
+  "script": "scripts/train/dcgan-mnist.ts",
+  "metrics": {
+   "testDLoss": 1.0268030166625977,
+   "testGLoss": 1.0369151830673218,
+   "testMeanDReal": 0.605843517055299,
+   "testMeanDFake": 0.37429622777603255,
+   "finalTrainDLoss": 0.864625483751297,
+   "finalTrainGLoss": 1.2494172126054763,
+   "lenetScoreGenerated": 5.457281067843496,
+   "lenetMeanMaxProbGenerated": 0.8190072259306915,
+   "lenetScoreRealTest": 9.300158047483208,
+   "lenetMeanMaxProbRealTest": 0.9801125774979588,
+   "trainCpuSeconds": 772,
+   "lenetFractionGenerated0": 0.083,
+   "lenetFractionGenerated1": 0.036,
+   "lenetFractionGenerated2": 0.104,
+   "lenetFractionGenerated3": 0.217,
+   "lenetFractionGenerated4": 0.062,
+   "lenetFractionGenerated5": 0.086,
+   "lenetFractionGenerated6": 0.06,
+   "lenetFractionGenerated7": 0.114,
+   "lenetFractionGenerated8": 0.074,
+   "lenetFractionGenerated9": 0.164
+  },
+  "notes": "Adam (lr 2e-4, β1 0.5, β2 0.999), batch 32, 2500 alternating D/G steps (1.33 epochs). test*: evaluation-mode (running batch-norm statistics) losses and mean D outputs on the 1,000 shipped test images and 1,000 generated images from noise drawn with Rng(0). lenet*: statistics of the shipped LeNet-5 classifier on the same 1,000 generated images (and on the 1,000 real test images for reference); lenetScore is the Inception-score formula with LeNet-5 in place of Inception. No FID or Inception score was computed.",
+  "seed": 1,
+  "steps": 2500,
+  "optimizer": {
+   "kind": "adam",
+   "lr": 0.0002,
+   "momentum": 0.9,
+   "beta1": 0.5,
+   "beta2": 0.999,
+   "eps": 1e-8,
+   "weightDecay": 0,
+   "clip": "none",
+   "clipValue": 1
+  },
+  "engineRevision": "79cd1b0",
+  "date": "2026-10-15"
+ }
+}

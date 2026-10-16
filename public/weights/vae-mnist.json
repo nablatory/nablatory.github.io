@@ -1,0 +1,115 @@
+{
+ "format": "nablatory-checkpoint",
+ "version": 1,
+ "model": "vae",
+ "config": {
+  "hidden": 256,
+  "latent": 2,
+  "activation": "relu",
+  "beta": 1
+ },
+ "params": [
+  {
+   "name": "enc1.weight",
+   "shape": [
+    256,
+    784
+   ],
+   "offset": 0
+  },
+  {
+   "name": "enc1.bias",
+   "shape": [
+    256
+   ],
+   "offset": 200704
+  },
+  {
+   "name": "mu.weight",
+   "shape": [
+    2,
+    256
+   ],
+   "offset": 200960
+  },
+  {
+   "name": "mu.bias",
+   "shape": [
+    2
+   ],
+   "offset": 201472
+  },
+  {
+   "name": "logvar.weight",
+   "shape": [
+    2,
+    256
+   ],
+   "offset": 201474
+  },
+  {
+   "name": "logvar.bias",
+   "shape": [
+    2
+   ],
+   "offset": 201986
+  },
+  {
+   "name": "dec1.weight",
+   "shape": [
+    256,
+    2
+   ],
+   "offset": 201988
+  },
+  {
+   "name": "dec1.bias",
+   "shape": [
+    256
+   ],
+   "offset": 202500
+  },
+  {
+   "name": "dec2.weight",
+   "shape": [
+    784,
+    256
+   ],
+   "offset": 202756
+  },
+  {
+   "name": "dec2.bias",
+   "shape": [
+    784
+   ],
+   "offset": 403460
+  }
+ ],
+ "provenance": {
+  "dataset": "MNIST training set (60,000 images), intensities / 255 used as Bernoulli targets",
+  "script": "scripts/train/vae-mnist.ts",
+  "metrics": {
+   "testNegElbo": 153.6826069831848,
+   "testRecon": 148.0860870361328,
+   "testKl": 5.596519947052003,
+   "fullTestNegElbo": 155.12067251205445,
+   "trainCpuSeconds": 180
+  },
+  "notes": "Adam, batch 100, 4 epochs (2400 steps); lr 3e-3, then 1e-3 for the final epoch. testNegElbo / testRecon / testKl: nats per image on the 1,000 shipped test images (first 1,000 of the MNIST test set), averaged over 10 draws of ε from Rng(0) (vaeNegElbo in src/models/autoencoder/vae.ts). fullTestNegElbo: same quantity on all 10,000 test images with a single ε draw. Non-binarised pixels, so these values are not comparable with results on binarised MNIST.",
+  "seed": 1,
+  "steps": 2400,
+  "optimizer": {
+   "kind": "adam",
+   "lr": 0.001,
+   "momentum": 0.9,
+   "beta1": 0.9,
+   "beta2": 0.999,
+   "eps": 1e-8,
+   "weightDecay": 0,
+   "clip": "none",
+   "clipValue": 1
+  },
+  "engineRevision": "79cd1b0",
+  "date": "2026-10-15"
+ }
+}

@@ -1,0 +1,229 @@
+@import '@fontsource-variable/ibm-plex-sans/wght.css';
+@import '@fontsource/ibm-plex-mono/latin-400.css';
+@import '@fontsource/ibm-plex-mono/latin-500.css';
+
+:root {
+  --paper: #f4f5f7;
+  --surface: #ffffff;
+  --well: #f8f9fb;
+  --line: #e3e6ea;
+  --line-strong: #c7cdd4;
+  --ink: #141a22;
+  --ink-2: #4b5563;
+  --ink-3: #66717d;
+  --ink-4: #98a2ae;
+  --accent: #0f766e;
+  --accent-ink: #0b5f59;
+  --accent-tint: rgba(15, 118, 110, 0.1);
+  --accent-tint-2: rgba(15, 118, 110, 0.18);
+  --on-accent: #ffffff;
+  --neg: #1f4e8c;
+  --pos: #b0263c;
+  --grad: #b5740a;
+  --grad-ink: #8a5806;
+  --cmp: #6d4dc2;
+  --ok: #1e7f4f;
+  --bad: #b42334;
+  --tint: rgba(20, 26, 34, 0.05);
+  --tint-2: rgba(20, 26, 34, 0.09);
+  --mark: rgba(181, 116, 10, 0.18);
+  --grid: rgba(20, 26, 34, 0.045);
+  --grid-dot: rgba(20, 26, 34, 0.11);
+  --edge: #8c96a2;
+  --shadow-pop: 0 10px 30px rgba(20, 26, 34, 0.14), 0 0 0 1px var(--line);
+
+  /* Aliases kept for the colour maps and older components. */
+  --plot: var(--surface);
+  --bench: var(--paper);
+  --face: var(--surface);
+  --rule: var(--line);
+  --rule-strong: var(--line-strong);
+
+  --f-ui: 'IBM Plex Sans Variable', 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --f-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --t-caption: 12px;
+  --t-ui: 13px;
+  --t-body: 14px;
+  --t-lede: 15px;
+  --t-card: 16px;
+  --t-section: 20px;
+  --t-title: 26px;
+  --t-display: 36px;
+
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+
+  --r-ctl: 6px;
+  --r-card: 8px;
+  --r-chip: 4px;
+  --gutter: 24px;
+  --topbar-h: 56px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-fast: 120ms;
+  --t-med: 200ms;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #0e1217;
+    --surface: #161b22;
+    --well: #1c222b;
+    --line: #2a323d;
+    --line-strong: #3b4654;
+    --ink: #e7ebf0;
+    --ink-2: #b5bec9;
+    --ink-3: #8793a0;
+    --ink-4: #66717d;
+    --accent: #3dbdb2;
+    --accent-ink: #6fd3c9;
+    --accent-tint: rgba(61, 189, 178, 0.14);
+    --accent-tint-2: rgba(61, 189, 178, 0.24);
+    --on-accent: #04211e;
+    --neg: #6e9be0;
+    --pos: #e06a7e;
+    --grad: #e2a43a;
+    --grad-ink: #e8b55c;
+    --cmp: #a48bef;
+    --ok: #4cc38a;
+    --bad: #f0788a;
+    --tint: rgba(231, 235, 240, 0.05);
+    --tint-2: rgba(231, 235, 240, 0.1);
+    --mark: rgba(226, 164, 58, 0.2);
+    --grid: rgba(231, 235, 240, 0.04);
+    --grid-dot: rgba(231, 235, 240, 0.09);
+    --edge: #5f6b78;
+    --shadow-pop: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--line);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --paper: #0e1217;
+  --surface: #161b22;
+  --well: #1c222b;
+  --line: #2a323d;
+  --line-strong: #3b4654;
+  --ink: #e7ebf0;
+  --ink-2: #b5bec9;
+  --ink-3: #8793a0;
+  --ink-4: #66717d;
+  --accent: #3dbdb2;
+  --accent-ink: #6fd3c9;
+  --accent-tint: rgba(61, 189, 178, 0.14);
+  --accent-tint-2: rgba(61, 189, 178, 0.24);
+  --on-accent: #04211e;
+  --neg: #6e9be0;
+  --pos: #e06a7e;
+  --grad: #e2a43a;
+  --grad-ink: #e8b55c;
+  --cmp: #a48bef;
+  --ok: #4cc38a;
+  --bad: #f0788a;
+  --tint: rgba(231, 235, 240, 0.05);
+  --tint-2: rgba(231, 235, 240, 0.1);
+  --mark: rgba(226, 164, 58, 0.2);
+  --grid: rgba(231, 235, 240, 0.04);
+  --grid-dot: rgba(231, 235, 240, 0.09);
+  --edge: #5f6b78;
+  --shadow-pop: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--line);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-ui);
+  font-size: var(--t-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--accent-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--mark);
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+.mono {
+  font-family: var(--f-mono);
+  font-size: 0.93em;
+}
+
+.muted {
+  color: var(--ink-3);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

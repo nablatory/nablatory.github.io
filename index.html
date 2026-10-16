@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Open neural network architectures and run them in your browser: real forward passes, gradients and training steps, with every intermediate tensor inspectable."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Nablatory</title>
+    <script>
+      try {
+        var t = localStorage.getItem('nablatory-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript
+      >Nablatory computes everything in your browser with JavaScript. Please enable it to use the
+      site.</noscript
+    >
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

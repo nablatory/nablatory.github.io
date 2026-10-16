@@ -1,0 +1,308 @@
+{
+ "format": "nablatory-checkpoint",
+ "version": 1,
+ "model": "gpt",
+ "config": {
+  "layers": 2,
+  "dModel": 64,
+  "heads": 4,
+  "context": 64,
+  "tie": true,
+  "mask": "causal",
+  "dropout": 0
+ },
+ "params": [
+  {
+   "name": "embed.tok",
+   "shape": [
+    65,
+    64
+   ],
+   "offset": 0
+  },
+  {
+   "name": "embed.pos",
+   "shape": [
+    64,
+    64
+   ],
+   "offset": 4160
+  },
+  {
+   "name": "block1.ln1.weight",
+   "shape": [
+    64
+   ],
+   "offset": 8256
+  },
+  {
+   "name": "block1.ln1.bias",
+   "shape": [
+    64
+   ],
+   "offset": 8320
+  },
+  {
+   "name": "block1.attn.q.weight",
+   "shape": [
+    64,
+    64
+   ],
+   "offset": 8384
+  },
+  {
+   "name": "block1.attn.q.bias",
+   "shape": [
+    64
+   ],
+   "offset": 12480
+  },
+  {
+   "name": "block1.attn.k.weight",
+   "shape": [
+    64,
+    64
+   ],
+   "offset": 12544
+  },
+  {
+   "name": "block1.attn.k.bias",
+   "shape": [
+    64
+   ],
+   "offset": 16640
+  },
+  {
+   "name": "block1.attn.v.weight",
+   "shape": [
+    64,
+    64
+   ],
+   "offset": 16704
+  },
+  {
+   "name": "block1.attn.v.bias",
+   "shape": [
+    64
+   ],
+   "offset": 20800
+  },
+  {
+   "name": "block1.attn.o.weight",
+   "shape": [
+    64,
+    64
+   ],
+   "offset": 20864
+  },
+  {
+   "name": "block1.attn.o.bias",
+   "shape": [
+    64
+   ],
+   "offset": 24960
+  },
+  {
+   "name": "block1.ln2.weight",
+   "shape": [
+    64
+   ],
+   "offset": 25024
+  },
+  {
+   "name": "block1.ln2.bias",
+   "shape": [
+    64
+   ],
+   "offset": 25088
+  },
+  {
+   "name": "block1.ffn.fc1.weight",
+   "shape": [
+    256,
+    64
+   ],
+   "offset": 25152
+  },
+  {
+   "name": "block1.ffn.fc1.bias",
+   "shape": [
+    256
+   ],
+   "offset": 41536
+  },
+  {
+   "name": "block1.ffn.fc2.weight",
+   "shape": [
+    64,
+    256
+   ],
+   "offset": 41792
+  },
+  {
+   "name": "block1.ffn.fc2.bias",
+   "shape": [
+    64
+   ],
+   "offset": 58176
+  },
+  {
+   "name": "block2.ln1.weight",
+   "shape": [
+    64
+   ],
+   "offset": 58240
+  },
+  {
+   "name": "block2.ln1.bias",
+   "shape": [
+    64
+   ],
+   "offset": 58304
+  },
+  {
+   "name": "block2.attn.q.weight",
+   "shape": [
+    64,
+    64
+   ],
+   "offset": 58368
+  },
+  {
+   "name": "block2.attn.q.bias",
+   "shape": [
+    64
+   ],
+   "offset": 62464
+  },
+  {
+   "name": "block2.attn.k.weight",
+   "shape": [
+    64,
+    64
+   ],
+   "offset": 62528
+  },
+  {
+   "name": "block2.attn.k.bias",
+   "shape": [
+    64
+   ],
+   "offset": 66624
+  },
+  {
+   "name": "block2.attn.v.weight",
+   "shape": [
+    64,
+    64
+   ],
+   "offset": 66688
+  },
+  {
+   "name": "block2.attn.v.bias",
+   "shape": [
+    64
+   ],
+   "offset": 70784
+  },
+  {
+   "name": "block2.attn.o.weight",
+   "shape": [
+    64,
+    64
+   ],
+   "offset": 70848
+  },
+  {
+   "name": "block2.attn.o.bias",
+   "shape": [
+    64
+   ],
+   "offset": 74944
+  },
+  {
+   "name": "block2.ln2.weight",
+   "shape": [
+    64
+   ],
+   "offset": 75008
+  },
+  {
+   "name": "block2.ln2.bias",
+   "shape": [
+    64
+   ],
+   "offset": 75072
+  },
+  {
+   "name": "block2.ffn.fc1.weight",
+   "shape": [
+    256,
+    64
+   ],
+   "offset": 75136
+  },
+  {
+   "name": "block2.ffn.fc1.bias",
+   "shape": [
+    256
+   ],
+   "offset": 91520
+  },
+  {
+   "name": "block2.ffn.fc2.weight",
+   "shape": [
+    64,
+    256
+   ],
+   "offset": 91776
+  },
+  {
+   "name": "block2.ffn.fc2.bias",
+   "shape": [
+    64
+   ],
+   "offset": 108160
+  },
+  {
+   "name": "lnf.weight",
+   "shape": [
+    64
+   ],
+   "offset": 108224
+  },
+  {
+   "name": "lnf.bias",
+   "shape": [
+    64
+   ],
+   "offset": 108288
+  }
+ ],
+ "provenance": {
+  "dataset": "tiny-shakespeare subset shipped in public/data/text (training split: first 269881 characters)",
+  "script": "scripts/train/gpt-shakespeare.ts",
+  "metrics": {
+   "validationLoss": 1.7479336261749268,
+   "heldOutLoss": 1.7088312786868496,
+   "heldOutBitsPerChar": 2.465322411477464,
+   "trainSeconds": 1678
+  },
+  "notes": "Adam, batch 16 windows of 64 characters, 1600 steps; learning rate warmed up linearly to 0.003 over 100 steps, then cosine-decayed to 0.0002; gradient norm clipped at 1. validationLoss is Session.evaluate() on 32 fixed held-out windows; heldOutLoss averages every non-overlapping window of the last 10 %.",
+  "seed": 1,
+  "steps": 1600,
+  "optimizer": {
+   "kind": "adam",
+   "lr": 0.0002,
+   "momentum": 0.9,
+   "beta1": 0.9,
+   "beta2": 0.999,
+   "eps": 1e-8,
+   "weightDecay": 0,
+   "clip": "norm",
+   "clipValue": 1
+  },
+  "engineRevision": "cdfd146",
+  "date": "2026-10-15"
+ }
+}
